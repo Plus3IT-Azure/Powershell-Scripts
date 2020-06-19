@@ -17,6 +17,12 @@ $AppRegName = "CT-MG-AppRegistration"
 $MSGraphId = "00000003-0000-0000-c000-000000000000"
 $domain = (Get-AzureADDomain).Name
 
+# API Permission IDs for Microsoft Graph
+$UserRead = "06da0dbc-49e2-44d2-8312-53f166ab848a=Scope"
+$DirectoryReadAll = "e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope"
+$UserReadAll = "62a82d76-70ea-41e2-9197-370581804d09=Role"
+$GroupsReadWriteAll = "df021288-bdef-4463-88db-98f22de89214=Role"
+
 # Creation of Random Password for App Registration
 Add-Type -AssemblyName System.Web
 $minLength = 15 ## characters
@@ -33,7 +39,7 @@ Start-Sleep -s 10
 
 # Add API Permissions to App Registration
 az ad app permission add --id $appId --api $MSGraphId `
-   --api-permissions "06da0dbc-49e2-44d2-8312-53f166ab848a=Scope", "e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope", "62a82d76-70ea-41e2-9197-370581804d09=Role", "df021288-bdef-4463-88db-98f22de89214=Role"
+   --api-permissions $UserRead, $DirectoryReadAll, $UserReadAll, $GroupsReadWriteAll
 Write-Host "Microsoft Graph Permissions with Id $MSGraphId added to App Registration"
 Start-Sleep -s 10
 
