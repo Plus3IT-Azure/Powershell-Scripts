@@ -10,21 +10,30 @@ This Powershell Script creates an App Registration and assigns it's Service Prin
   - Application - User.Read.All
   - Application - Groups.ReadWrite.All
 
-Two parameters are passed into the script as input:
+Before the Powershell script provisions Azure resources it checks to verify Azure CLI is installed. If Azure CLI is not installed it will stop and exit the script; the script will not work if **Azure CLI version 2.8.0 or above** isn't installed on the host running the script.
 
-- Redirect URL
-- Management Group
+This script can work in Azure commercial or Azure Government; this is addressed by setting the `-CloudEnv` parameter to AzureCloud or AzureUSGovernment.
+
+Three parameters are passed into the script as input:
+
+- **Redirect URL** (Location the user is sent to once authorized)
+
+- **Management Group** (Containers that manage access, policies, and compliance across subscriptions)
+
+- **CloudEnv** (Whether the resources are being created in AzureCloud or AzureUSGovernment)
 
 See below for example of passing input parameters into a Powershell script.  
 
+
 ## Install Azure CLI & Azure Powershell
 
-In order to run this powershell script one must have Azure CLI & Azure Powershell installed on the host machine.
+In order to run this powershell script one must have Azure Powershell & Azure CLI installed on the host machine.
 
-1. Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+1. Install the [Az Powershell Module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.6.1)
 
-2. Install the [Az Powershell Module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.6.1)
+2. Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
 
 ## Execute Powershell Script
 
-`.\az-appregistration-mg.ps1 -ManagementGroup <Name of Management Group to assign the Service Principal> -RedirectURL <ReplyURL of the App Registration>`
+`.\az-appregistration-mg.ps1 -ManagementGroup <Name of Management Group to assign the Service Principal> -RedirectURL <ReplyURL of the App Registration> -CloudEnv <AzureCloud or AzureUSGovernment>`
