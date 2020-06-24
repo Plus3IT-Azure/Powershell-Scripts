@@ -1,6 +1,6 @@
 ﻿# This powershell script creates an app registration for cloudtamer.io and assigns it the owner role to a management group
 
-  # Command used to run script .\az-appregistration.ps1 -ManagementGroupName <Management Group Name> -RedirectURL <Redirect URL> -CloudEnv <AzureCloud or AzureUSGovernment>
+  # Command used to run script .\az-appregistration-mg.ps1 -ManagementGroupName <Management Group Name> -RedirectURL <Redirect URL> -CloudEnv <AzureCloud or AzureUSGovernment>
 
      # az version 2.8.0 must be installed in order for this powershell script to run successfully
 
