@@ -27,11 +27,9 @@ See below for example of passing input parameters into a Powershell script.
 
 ## Install Azure CLI & Azure Powershell
 
-In order to run this powershell script one must have Azure Powershell & Azure CLI installed on the host machine.
+In order to run this powershell script one must have Azure CLI installed on the host machine.
 
-1. Install the [Az Powershell Module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.6.1)
-
-2. Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+1. Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 
 ## Execute Powershell Script
