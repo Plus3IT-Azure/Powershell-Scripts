@@ -25,7 +25,7 @@ Three parameters are passed into the script as input:
 See below for example of passing input parameters into a Powershell script.  
 
 
-## Install Azure CLI & Azure Powershell
+## Install Azure CLI
 
 In order to run this powershell script one must have Azure CLI installed on the host machine.
 
