@@ -48,8 +48,8 @@ $GroupsReadWriteAll = New-Object -TypeName "Microsoft.Open.AzureAD.Model.Resourc
 $req.ResourceAccess = $UserRead, $DirectoryReadAll, $UserReadAll, $GroupsReadWriteAll
 $req.ResourceAppId = $MsGraphId
 
-$AppObjectId = (Get-AzureADApplication -Filter "AppId eq '$appId'").ObjectId
-Set-AzureADApplication -ObjectId $AppObjectId -RequiredResourceAccess $req
+$AppObjectId = (Get-AzADApplication -Filter "AppId eq '$appId'").ObjectId
+Update-AzADApplication -ObjectId $AppObjectId -RequiredResourceAccess $req
 
 Write-Host "Microsoft Graph Permissions with Id $MSGraphId added to App Registration"
   Start-Sleep -s 10
