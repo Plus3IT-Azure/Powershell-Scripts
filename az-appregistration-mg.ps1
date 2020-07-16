@@ -4,6 +4,11 @@
 
      # az cli version 2.8.0 or above must be installed in order for this powershell script to run successfully
 
+# Input Variable(s)
+param($ManagementGroupName, $RedirectURL, $CloudEnv)
+Write-Host "The Management Group Name is $ManagementGroupName, the Redirect URL is $RedirectURL, and the Cloud Environment is $CloudEnv"
+Start-Sleep -s 5  
+   
 # Confirming AZ CLI is installed on localhost
 Write-Host "Verifying AZ CLI is installed..."
  $azcli = az version --query '\"azure-cli\"'
