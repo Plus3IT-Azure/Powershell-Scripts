@@ -77,3 +77,11 @@ Set-AzureADApplication -ObjectId $appreg.ObjectId -RequiredResourceAccess $req,$
 Write-Host "Accessing $AppRegName URL to Grant Admin Consent.."
 Start-Sleep -s 2
 Start "https://login.microsoftonline.com/$TenantID/adminconsent?client_id=$AppId"
+
+# Register App Registration Within Partner Center App Management
+# Anthony - Below is the code that I can't get to work. Az rest command fails with invalid signature and invoke-webrequest fails with a 404. FYI - we don't need both to work just either or.
+Connect-PartnerCenter
+   az rest --method patch --url "https://graph.microsoft.com/" --body "https://api.partnercenter.microsoft.com/internal/v1/applications/9374fc5c-b46d-481f-ab07-2f4ca93685d2"
+
+   Invoke-WebRequest -Method Patch -Uri "https://api.partnercenter.microsoft.com/internal/v1/applications/" -Body "https://api.partnercenter.microsoft.com/internal/v1/applications/9374fc5c-b46d-481f-ab07-2f4ca93685d2" 
+
